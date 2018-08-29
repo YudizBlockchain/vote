@@ -1,0 +1,59 @@
+
+<div class="" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+         <h4 class="modal-title" id="addTransactionModalLabel">Find Transaction</h4>
+          <p class="modal-intro">Enter the required values below.</p>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+          <div class="form-group text-left">
+            <label for="tID">TransactionID</label>
+            
+                <input type="text" formControlName="tID" class="form-control" required>
+            
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="getData(myForm.value);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+
+        </div>
+      </form>
+     </div>
+  </div>
+</div>
+  
+
+<div *ngIf="tData"  class="" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+         <h4 class="modal-title" id="addTransactionModalLabel">Transaction Details</h4>
+         <h5>TxID: {{tData.transactionId}}</h5>
+     </div>
+     <div class="modal-body">
+       <table border="0">
+        <tr><td>Political Party</td><td>: {{tData.candidateVoteAsset}}</td></tr>
+        <tr><td>Voter ID</td><td>: {{tData.ifVotedAsset}}</td></tr>
+        <tr><td>Timestamp</td><td>: {{tData.timestamp}}</td></tr>
+     </table>
+     </div>
+    </div>
+  </div>
+ </div>
+
+ <div *ngIf="error"  class="" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+           <h4 class="modal-title" id="addTransactionModalLabel">Error</h4>
+       </div>
+       <div class="modal-body">
+         <p>Transaction not found</p>
+       </div>
+      </div>
+    </div>
+   </div>

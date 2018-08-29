@@ -1,0 +1,60 @@
+<div class="" id="addTransactionModal" tabindex="-1" role="dialog" aria-labelledby="addTransactionModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+         <h4 class="modal-title" id="addTransactionModalLabel">Create Transaction</h4>
+          <p class="modal-intro">Enter the required values below.</p>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+
+          
+
+            
+              <div class="form-group text-left">
+                <label for="candidateVoteAsset">candidateVoteAsset</label>
+                <br>
+                <select class="form-control" formControlName="candidateVoteAsset" name="polotician" id="select1" >
+                  <option *ngFor="let party of allParties" value="{{party.politicalParty}}" selected>{{party.politicalParty}}</option>
+                </select>
+
+                    
+              </div>
+            
+          
+
+            
+              <div class="form-group text-left">
+                <label for="ifVotedAsset">ifVotedAsset</label>
+                <br>
+                <select class="form-control" formControlName="ifVotedAsset" name="polotician" id="select1" >
+                  <option *ngFor="let participant of allParticipants" value="{{participant.voterID}}" selected>{{participant.voterID}}</option>
+                </select>
+
+              </div>
+            
+          
+
+            
+            
+          
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button (click)="addTransaction(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Confirm</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        <strong>Error:</strong> {{errorMessage}}
+    </div>
+</div>
+ 
